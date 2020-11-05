@@ -1,5 +1,6 @@
 #pragma once
 
+#include <zconf.h>
 #include "Array.h"
 #include "ArrayLong.h"
 
