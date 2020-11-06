@@ -31,10 +31,6 @@ int main() {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
 
-
-    printf("Привет\n");
-    wprintf(L"Привет\n");
-
     wprintf(GREETING);
     Text text = readText();
     wprintf(HELP);
