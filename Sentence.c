@@ -1,7 +1,6 @@
 #include "Sentence.h"
 #include <string.h>
 #include <wchar.h>
-#include <bits/wctype-wchar.h>
 #include "Text.h"
 #include "ArrayLong.h"
 
@@ -56,7 +55,7 @@ Sentence readSentence() {
 }
 
 int cmpNoReg(Sentence s1, Sentence s2) {
-    return wcscasecmp(s1.ptr, s2.ptr) == 0;
+    return wcsicmp(s1.ptr, s2.ptr) == 0;
 }
 
 int cyrillicChars(Sentence s) {

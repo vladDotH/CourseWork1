@@ -1,5 +1,7 @@
 #include <locale.h>
 #include <wchar.h>
+#include <stdio.h>
+#include <fcntl.h>
 #include "Text.h"
 
 enum Mode {
@@ -24,7 +26,14 @@ const wchar_t *HELP =
 const wchar_t *INPUT = L">>";
 
 int main() {
-    setlocale(LC_ALL, "ru_RU.utf8");
+//    setlocale(LC_ALL, ".UTF-16");
+//    _wsetlocale(LC_ALL, L".UTF-16");
+    _setmode(_fileno(stdout), _O_U16TEXT);
+    _setmode(_fileno(stdin), _O_U16TEXT);
+
+
+    printf("Привет\n");
+    wprintf(L"Привет\n");
 
     wprintf(GREETING);
     Text text = readText();
