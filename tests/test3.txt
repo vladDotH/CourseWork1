@@ -1,0 +1,9 @@
+TEST SENTENCEabcdefg.
+Тестовое Sentenceabc.
+Testabcd предложение.
+Тестовое предложение.
+
+
+3
+5
+0

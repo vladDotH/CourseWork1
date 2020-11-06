@@ -1,0 +1,25 @@
+4:20 Test, sentence!    test 3:33 Sentence?
+    Test Sentence 13:37.
+     0:0 TEST 6:30 SENTENCE 23:00;
+
+Hello World! TEST sentence? test,SENTENCE.
+  TESTsentence! testSENTENCE ?    Test,Sentence.
+
+TEST SENTENCEabcdefg.
+Тестовое Sentenceabc.
+Testabcd предложение.
+Тестовое предложение.
+
+Hello world! 	<-TAB, test sentence! \N ->
+test Sentence. test TAB-> 	 Sentence. Test Sentence without special chars.
+
+
+1
+5
+2
+5
+3
+5
+4
+5
+0
