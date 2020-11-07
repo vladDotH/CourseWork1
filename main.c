@@ -1,5 +1,7 @@
 #include <locale.h>
 #include <wchar.h>
+#include <stdio.h>
+#include <fcntl.h>
 #include "Text.h"
 
 void io_config() {
@@ -17,7 +19,8 @@ enum Mode {
     DELETE_ALL_CAPITAL_LATIN,
     SORT_CYRILLIC_DESCENT,
     DELETE_NO_SPEC_CHARS_SENTENCES,
-    PRINT
+    PRINT,
+    MANUAL
 };
 
 const wchar_t *GREETING = L"Введите текст (Три перевода строки \\n - для окончания ввода)\n";
@@ -29,6 +32,7 @@ const wchar_t *HELP =
         "3 - Отсортировать предложения по уменьшению количеству кириллических букв.\n"
         "4 - Удалить все предложения в которых нет специальных символов.\n"
         "5 - Распечатать текст\n"
+        "6 - Справка\n"
         "0 - Выход\n";
 const wchar_t *INPUT = L">>";
 
@@ -58,6 +62,8 @@ int main() {
             case PRINT:
                 printText(text);
                 break;
+            case MANUAL:
+                wprintf(HELP);
         }
     }
 
