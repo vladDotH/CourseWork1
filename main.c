@@ -1,8 +1,15 @@
 #include <locale.h>
 #include <wchar.h>
-#include <stdio.h>
-#include <fcntl.h>
 #include "Text.h"
+
+void io_config() {
+#if defined(__linux__)
+    setlocale(LC_ALL, "ru_RU.utf8");
+#elif defined(_WIN32)
+    _setmode(_fileno(stdout), _O_U16TEXT);
+    _setmode(_fileno(stdin), _O_U16TEXT);
+#endif
+}
 
 enum Mode {
     EXIT,
@@ -26,16 +33,12 @@ const wchar_t *HELP =
 const wchar_t *INPUT = L">>";
 
 int main() {
-//    setlocale(LC_ALL, ".UTF-16");
-//    _wsetlocale(LC_ALL, L".UTF-16");
-    _setmode(_fileno(stdout), _O_U16TEXT);
-    _setmode(_fileno(stdin), _O_U16TEXT);
-
+    io_config();
     wprintf(GREETING);
     Text text = readText();
     wprintf(HELP);
 
-    enum Mode mode= -1;
+    enum Mode mode = -1;
     while (mode != EXIT) {
         wprintf(INPUT);
         wscanf(L"%d", &mode);

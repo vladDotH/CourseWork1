@@ -55,7 +55,11 @@ Sentence readSentence() {
 }
 
 int cmpNoReg(Sentence s1, Sentence s2) {
+#if defined(__linux__)
+    return wcscasecmp(s1.ptr, s2.ptr) == 0;
+#elif defined(_WIN32)
     return wcsicmp(s1.ptr, s2.ptr) == 0;
+#endif
 }
 
 int cyrillicChars(Sentence s) {
